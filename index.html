@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./Assets/css/master.css">
+</head>
+<body>
+  <div id="root">
+    <div class="container">
+      <header>
+        <div class="title">
+          <h1>Libreria Vinili</h1>
+        </div>
+      </header>
+      <main>
+        <div class="live-records-container">
+          <div class="live-records">
+            <div
+              class="live-records-card"
+              v-for="(liveRecord,i) in liveRecords"
+              @click="active(i)">
+              <div class="live-records-img">
+                <img :src= "`${liveRecord.poster}`" alt="">
+              </div>
+              <div class="live-records-info">
+                  <h4>{{ liveRecord.author}}</h4>
+                  <span>{{ liveRecord.title}}</span>
+                  <span>{{ liveRecord.year}}</span>
+              </div>
+              <div class="genre">
+                <span>{{ liveRecord.genre}}</span>
+              </div>
+
+            </div>
+          </div>
+          <div class="select">
+            <span>Scegli il genere che fa per te:</span>
+            <select>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+              <option value=""></option>
+            </select>
+          </div>
+        </div>
+        <aside>
+          <div
+            class="description-container"
+            >
+            <div
+              class="live-records-description">
+              <div class="live-records-paragraph">
+                <p>Informazioni aggiuntive:</p>
+              </div>
+              <div class="live-records-description-img">
+                <img :src= "`${liveRecords[this.index].poster}`" alt="">
+              </div>
+              <div class="live-records-description-info-container">
+                <ul class="live-records-info">
+                  <li><b>Author:</b> {{ liveRecords[this.index].author}}</li>
+                  <li><b>Title:</b> {{ liveRecords[this.index].title}}</li>
+                  <li><b>Year:</b> {{ liveRecords[this.index].year}}</li>
+                  <li><b>Genre:</b> {{ liveRecords[this.index].genre}}</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="./Assets/js/main.js" charset="utf-8"></script>
+</body>
+</html>
